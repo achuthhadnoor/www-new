@@ -17,9 +17,9 @@ function NavItem({ href, text }) {
       <a
         className={cn(
           isActive
-            ? 'font-semibold text-gray-800 dark:text-gray-200'
-            : 'font-normal text-gray-600 dark:text-gray-400',
-          'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all'
+            ? 'font-semibold text-gray-800 '
+            : 'font-normal text-gray-600 ',
+          'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200  transition-all'
         )}
       >
         <span className="capsize">{text}</span>
@@ -40,19 +40,19 @@ export default function Container(props) {
   const meta = {
     title: 'Lee Robinson – Developer, writer, creator.',
     description: `Front-end developer, JavaScript enthusiast, and course creator.`,
-    image: 'https://leerob.io/static/images/banner.png',
+    image: 'https://achuth.dev/static/images/banner.png',
     type: 'website',
     ...customMeta
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
+    <div className="bg-gray-10 ">
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta property="og:url" content={`https://leerob.io${router.asPath}`} />
-        <link rel="canonical" href={`https://leerob.io${router.asPath}`} />
+        <meta property="og:url" content={`https://achuth.dev${router.asPath}`} />
+        <link rel="canonical" href={`https://achuth.dev${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Lee Robinson" />
         <meta property="og:description" content={meta.description} />
@@ -67,8 +67,8 @@ export default function Container(props) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <div className="flex flex-col justify-center px-8">
-        <nav className="flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
+      <div className="flex flex-col justify-center px-8 bg-gray-100 ">
+        <nav className="flex items-center justify-between w-full relative max-w-5xl border-gray-100  mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-100  bg-opacity-60 ">
           <a href="#skip" className="skip-nav">
             Skip to content
           </a>
@@ -83,7 +83,7 @@ export default function Container(props) {
           <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
+            className="w-9 h-9 bg-gray-200 rounded-lg  flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
             onClick={() =>
               setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
             }
@@ -94,7 +94,7 @@ export default function Container(props) {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                className="w-5 h-5 text-gray-800 dark:text-gray-200"
+                className="w-5 h-5 text-gray-800 "
               >
                 {resolvedTheme === 'dark' ? (
                   <path
@@ -118,7 +118,7 @@ export default function Container(props) {
       </div>
       <main
         id="skip"
-        className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
+        className="flex flex-col justify-center px-8 bg-gray-100  "
       >
         {children}
         <Footer />

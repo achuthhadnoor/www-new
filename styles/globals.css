@@ -5,3 +5,25 @@
 *{
     font-family:monospace
 }
+
+::selection {
+    background-color: #47a3f3;
+    color: #fefefe;
+  }
+  
+  html {
+    min-width: 360px;
+    scroll-behavior: smooth;
+  }
+  
+  #__next {
+    @apply bg-gray-50 ;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+.skip-nav {
+    @apply absolute px-4 py-3 transition-transform duration-200 transform -translate-y-12 -left-1/4 focus:top-4 focus:translate-y-3 -top-8;
+  }
+  
