@@ -7,6 +7,8 @@ import cn from 'classnames';
 
 import Footer from 'components/Footer';
 import MobileMenu from 'components/MobileMenu';
+import { menu } from '../constants';
+import { Logo } from './Svg';
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -28,6 +30,14 @@ function NavItem({ href, text }) {
   );
 }
 
+function DesktopMenu() {
+  return (
+  <>
+    {menu.map((menuItem, i) => !menuItem.mobile && <NavItem href={menuItem.link} text={menuItem.name} key={`menuItem-${i}`} />)}
+  </>
+  )
+}
+
 export default function Container(props) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
@@ -38,7 +48,7 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Lee Robinson – Developer, writer, creator.',
+    title: 'Achuth Hadnoor – Developer, writer, creator.',
     description: `Front-end developer, JavaScript enthusiast, and course creator.`,
     image: 'https://achuth.dev/static/images/banner.png',
     type: 'website',
@@ -46,7 +56,7 @@ export default function Container(props) {
   };
 
   return (
-    <div className="bg-gray-10 ">
+    <div className="bg-indigo-900 p-2">
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -54,12 +64,12 @@ export default function Container(props) {
         <meta property="og:url" content={`https://achuth.dev${router.asPath}`} />
         <link rel="canonical" href={`https://achuth.dev${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Lee Robinson" />
+        <meta property="og:site_name" content="Achuth Hadnoor" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@leeerob" />
+        <meta name="twitter:site" content="@achuth_hadnoor" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
@@ -67,18 +77,15 @@ export default function Container(props) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <div className="flex flex-col justify-center px-8 bg-gray-100 ">
+      <div className="flex flex-col px-8 bg-gray-100 ">
         <nav className="flex items-center justify-between w-full relative max-w-5xl border-gray-100  mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-100  bg-opacity-60 ">
-          <a href="#skip" className="skip-nav">
-            Skip to content
-          </a>
-          <div className="ml-[-0.60rem]">
+          <div className="hidden md:block">
+            <Logo/>
+          </div>
+
+          <div className="ml-[-0.60rem] text-right">
             <MobileMenu />
-            <NavItem href="/" text="Home" />
-            <NavItem href="/guestbook" text="Guestbook" />
-            <NavItem href="/dashboard" text="Dashboard" />
-            <NavItem href="/blog" text="Blog" />
-            <NavItem href="/snippets" text="Snippets" />
+            <DesktopMenu />
           </div>
           <button
             aria-label="Toggle Dark Mode"
@@ -91,7 +98,7 @@ export default function Container(props) {
             {mounted && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                viewBox="0 0 36 24"
                 fill="none"
                 stroke="currentColor"
                 className="w-5 h-5 text-gray-800 "
@@ -118,11 +125,11 @@ export default function Container(props) {
       </div>
       <main
         id="skip"
-        className="flex flex-col justify-center px-8 bg-gray-100  "
+        className="flex flex-col justify-center px-8 bg-gray-100 w-auto w-full "
       >
         {children}
-        <Footer />
       </main>
+      <Footer />
     </div>
   );
 }
