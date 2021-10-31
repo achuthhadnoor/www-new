@@ -9,7 +9,7 @@ import type { Blog } from '.contentlayer/types';
 
 export default function Post({ post, tweets }: { post: Blog; tweets: any[] }) {
   const Component = useMemo(
-    () => getMDXComponent(post.body.code),
+    () => getMDXComponent(post?.body.code),
     [post.body.code]
   );
   const StaticTweet = ({ id }) => {
@@ -39,6 +39,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  console.log(params);
   const post = allBlogs.find((post) => post.slug === params.slug);
   const tweets = await getTweets(post.tweetIds);
 
