@@ -20,7 +20,6 @@ export default function Home() {
             <h3 className="text-lg pb-5">Developer {'&'} UI/UX Designer</h3>
             <p className="text-sm max-w-prose leading-loose">
               👋 Hey, I am a
-
               <a href="https://achuth.dev/dribbble"
                 className="p-1 ml-1 bg-yellow-50 hover:bg-yellow-100 rounded-md text-yellow-600">designer</a>, <a target="_blank" rel="noopener noreferrer" href="https://achuth.dev/github" className="p-1 ml-1 bg-yellow-50 hover:bg-yellow-100 rounded-md text-yellow-600">developer</a>,
               <a href="https://achuth.dev/medium" className="p-1 ml-1 bg-yellow-50 hover:bg-yellow-100 rounded-md text-yellow-600">writer</a>
